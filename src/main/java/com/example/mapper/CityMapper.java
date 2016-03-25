@@ -1,6 +1,9 @@
 package com.example.mapper;
 
+import java.util.List;
+
 import com.example.domain.City;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,11 +14,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class CityMapper {
 
-  @Autowired
-  private SqlSessionTemplate sqlSessionTemplate;
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
 
-  public City selectCityById(long id) {
-    return this.sqlSessionTemplate.selectOne("selectCityById", id);
-  }
+	public City selectCityById(long id) {
+		return this.sqlSessionTemplate.selectOne("selectCityById", id);
+	}
+
+	public List<City> getCityAll() {
+		return this.sqlSessionTemplate.selectList("getCityAll");
+	}
 
 }

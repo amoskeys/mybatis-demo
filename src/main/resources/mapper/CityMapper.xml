@@ -6,4 +6,7 @@
   <select id="selectCityById" resultType="City">
     select * from City where id = #{id}
   </select>
+  <select id="getCityAll" resultType="City">
+    select * from City
+  </select>
 </mapper>
